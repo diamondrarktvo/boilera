@@ -12,7 +12,8 @@
          "_services": ["src/services"],
          "_i18n": ["src/i18n"],
          "_store": ["src/store"],
-         "_navigations": ["src/navigations"]
+         "_navigations": ["src/navigations"],
+         "_hooks": ["src/hooks"],
       }
   }
 }

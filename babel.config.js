@@ -29,6 +29,7 @@ module.exports = function(api) {
                   _utils: './src/utils',
                   _navigations: './src/navigations',
                   _i18n: './src/i18n',
+                  _hooks: './src/hooks',
                },
             },
          ],
