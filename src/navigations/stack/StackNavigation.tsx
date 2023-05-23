@@ -3,8 +3,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import { HomeScreen } from "_features";
 import { navigationName } from "_utils";
 import { stackNavigationConfig } from "./configStack";
+import { StackNavigationParams } from "./Types";
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator<StackNavigationParams>();
 
 const StackNavigation = () => {
   return (
