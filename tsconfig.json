@@ -1,19 +1,19 @@
+//prettier-ignore
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
     "strict": true,
      "baseUrl": ".",
      "paths": {
-         "_components": ["src/components"],
+         "_shared": ["src/shared"],
          "_images": ["src/assets/images"],
-         "_screens": ["src/screens"],
-         "_styles": ["src/styles"],
+         "_features": ["src/features"],
+         "_theme": ["src/theme"],
          "_utils": ["src/utils"],
          "_services": ["src/services"],
          "_i18n": ["src/i18n"],
          "_store": ["src/store"],
          "_navigations": ["src/navigations"],
-         "_hooks": ["src/hooks"],
       }
   }
 }
