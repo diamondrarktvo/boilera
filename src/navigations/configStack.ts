@@ -24,6 +24,8 @@ export const stackNavigationConfig: StackNavigationConfig = {
     },
     headerTitleAlign: "center",
   },
-  //screenOptionsForHiddenHeader: {},
+  screenOptionsForHiddenHeader: {
+    headerShown: false
+  },
   //screenOptionsTransparentHeader: {},
 };
