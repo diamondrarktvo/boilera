@@ -1,3 +1,3 @@
-import StackNavigation from "./stack/StackNavigation";
+import StackNavigation from "./StackNavigation";
 
 export {StackNavigation}
