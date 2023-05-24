@@ -4,6 +4,6 @@ export interface StackNavigationConfig {
   screenOptionsForDisplayedHeader: StackNavigationOptions;
 }
 
-export type StackParamsList {
+export type StackParamsList = {
   home_screen: undefined;
 }
