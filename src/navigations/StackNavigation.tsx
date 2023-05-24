@@ -10,12 +10,11 @@ const StackNavigation = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName={"home_screen"}>
-        <Stack.Screen name={"home_screen"} component={HomeScreen} />
 
         <Stack.Group
           screenOptions={stackNavigationConfig.screenOptionsForDisplayedHeader}
         >
-          <Stack.Screen name={"home_screen"} component={HomeScreen} />
+          <Stack.Screen name={"home_screen"} component={HomeScreen} options={{title: "Accueil"}} />
         </Stack.Group>
       </Stack.Navigator>
     </NavigationContainer>
