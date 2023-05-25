@@ -1,44 +1,47 @@
 //IMPORT FROM NODE_MODULES
-import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
-
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { Text } from "react-native";
 
 //LOCAL IMPORT
 import { TabParamList } from "./Types";
 import { Icon } from "_shared";
-
+import { TABROUTES } from "_utils";
 
 //IMPORT SCREEN
-import { HomeScreen, SearchScreen } from "_features";
 
-const Tab = createMaterialBottomTabNavigator<TabParamList>();
+const Tab = createBottomTabNavigator<TabParamList>();
 
 const TabNavigation = () => {
-
   return (
-    <Tab.Navigator 
+    <Tab.Navigator
       initialRouteName="home_screen"
-      shifting={true}
+      screenOptions={{
+        headerShown: false,
+        tabBarHideOnKeyboard: true,
+      }}
     >
-      <Tab.Screen
-        name="home_screen"
-        component={HomeScreen}
-        options={{ 
-          tabBarLabel: "Accueil",
-          tabBarIcon: ({ focused,  color }) => (
-              <Icon name="home" color={color} size={focused ? 26 : 30} />
-          )
+      {TABROUTES.map((route) => (
+        <Tab.Screen
+          key={route.name}
+          name={route.name}
+          component={route.component}
+          options={{
+            tabBarActiveTintColor: "white",
+            tabBarInactiveTintColor: "grey",
+            tabBarActiveBackgroundColor: route.color,
+            tabBarInactiveBackgroundColor: route.color,
+            tabBarLabel: ({ focused }) =>
+              focused ? (
+                <Text style={{ color: "white" }}>{route.tabLabel}</Text>
+              ) : (
+                ""
+              ),
+            tabBarIcon: ({ focused, color }) => (
+              <Icon name={route.icon} color={color} size={focused ? 26 : 30} />
+            ),
           }}
-      />
-      <Tab.Screen
-        name="search_screen"
-        component={SearchScreen}
-        options={{ 
-          tabBarLabel: "Recherche",
-          tabBarIcon: ({ focused, color }) => (
-              <Icon name="search" color={color} size={focused ? 26 : 30} />
-          )
-        }}
-      />
+        />
+      ))}
     </Tab.Navigator>
   );
 };

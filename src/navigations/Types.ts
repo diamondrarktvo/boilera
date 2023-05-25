@@ -7,10 +7,10 @@ export interface StackNavigationConfig {
 
 export type StackParamList = {
   main_tabs: undefined;
-  details_book: undefined
-}
+  details_book: undefined;
+};
 
 export type TabParamList = {
   home_screen: undefined;
   search_screen: undefined;
-}
+};
