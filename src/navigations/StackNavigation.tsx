@@ -15,6 +15,7 @@ import { DetailBook } from "_features";
 const Stack = createStackNavigator<StackParamList>();
 
 const StackNavigation = () => {
+
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName={"main_tabs"}>
