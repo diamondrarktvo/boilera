@@ -3,6 +3,7 @@ import { createMaterialBottomTabNavigator } from "@react-navigation/material-bot
 
 //LOCAL IMPORT
 import { TabParamList } from "./Types";
+import { Icon } from "_shared";
 
 //IMPORT SCREEN
 import { HomeScreen, SearchScreen } from "_features";
@@ -15,12 +16,22 @@ const TabNavigation = () => {
       <Tab.Screen
         name="home_screen"
         component={HomeScreen}
-        options={{ tabBarLabel: "Accueil" }}
+        options={{ 
+          tabBarLabel: "Accueil",
+          tabBarIcon: ({ color }) => (
+              <Icon name="home" color={color} size={24} />
+            )
+          }}
       />
       <Tab.Screen
         name="search_screen"
         component={SearchScreen}
-        options={{ tabBarLabel: "Recherche" }}
+        options={{ 
+          tabBarLabel: "Recherche",
+          tabBarIcon: ({ color }) => (
+              <Icon name="search" color={color} size={24} />
+          )
+        }}
       />
     </Tab.Navigator>
   );
