@@ -26,13 +26,9 @@ const TabNavigation = () => {
           name={route.name}
           component={route.component}
           options={{
-            tabBarActiveTintColor: "white",
-            tabBarInactiveTintColor: "grey",
-            tabBarActiveBackgroundColor: route.color,
-            tabBarInactiveBackgroundColor: route.color,
-            tabBarLabel: ({ focused }) =>
+            tabBarLabel: ({ focused, color }) =>
               focused ? (
-                <Text style={{ color: "white" }}>{route.tabLabel}</Text>
+                <Text style={{ color: color }}>{route.tabLabel}</Text>
               ) : (
                 ""
               ),
