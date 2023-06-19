@@ -1,3 +1,7 @@
-import {NavigationlightTheme, NavigationdarkTheme} from './theme';
+import { theme, darkTheme, Theme } from "./theme";
 
-export {NavigationdarkTheme, NavigationlightTheme}
+import { Size } from "./size";
+
+import { Typography } from "./typography";
+
+export { theme, darkTheme, Theme, Size, Typography };

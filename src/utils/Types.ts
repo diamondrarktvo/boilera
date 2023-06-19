@@ -1,10 +1,15 @@
 import React from "react";
-import { TabParamList } from "src/navigations/Types";
+import { TabParamList, TopParamList } from "src/navigations/Types";
 
-export interface RouteTypes {
+export interface TabRouteTypes {
   name: keyof TabParamList;
-  component: React.FC<any>;
+  component: React.FC<unknown>;
   tabLabel: string;
   icon: string;
-  color: string;
+}
+
+export interface TopTabRouteTypes {
+  name: keyof TopParamList;
+  topLabel: string;
+  component: React.FC<unknown>;
 }

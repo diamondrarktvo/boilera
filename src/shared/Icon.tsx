@@ -1,10 +1,7 @@
-import React from 'react';
-import { Icon as RNEIcon, IconProps } from "@rneui/themed";
+import { Icon as RNEIcon, IconProps as RNEIconProps } from "@rneui/themed";
+import  React  from 'react';
 
-//BOTTOM TAB
-const Icon = ({name, size, color}: IconProps) => {
-  return (
-      <RNEIcon name={name} size={size} color={color} />
-  );
-};
+const Icon = ({ children, ...props }: RNEIconProps) => <RNEIcon {...props} />;
+
+export type IconProps = React.ComponentProps<typeof Icon>;
 export default Icon;
