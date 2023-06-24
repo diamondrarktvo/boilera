@@ -1,3 +1,4 @@
+import { FAB } from "@rneui/themed";
 import { useTheme } from "@shopify/restyle";
 import { View } from "react-native";
 import { Alert, Pressable, StyleSheet } from "react-native";
@@ -12,6 +13,7 @@ import {
   TouchableOpacity,
 } from "_shared";
 import { Size, Theme } from "_theme";
+import { SpeakText } from "_utils";
 
 export default function SearchScreen() {
   const theme = useTheme<Theme>();
@@ -41,14 +43,20 @@ export default function SearchScreen() {
           </Pressable>
         </Row>
       </TouchableOpacity>
-      <Button label="Search" />
+      <FAB
+        visible={true}
+        onPress={() => SpeakText(true, "Bonjour")}
+        placement="right"
+        icon={{ name: "play-arrow", color: "white" }}
+        color={colors.primary}
+      />
     </MainScreen>
   );
 }
 
 const styles = StyleSheet.create({
   card_shadow: {
-    padding: "2%",
+    padding: "3%",
     marginBottom: "4%",
     borderRadius: 24,
     backgroundColor: "#fff",
