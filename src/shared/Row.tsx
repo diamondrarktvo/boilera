@@ -2,9 +2,9 @@ import Box from "./Box";
 import { BoxProps } from "./Box";
 import React from "react";
 
-type RowProps = Omit<BoxProps, "flexDirection"> & {
+type RowProps = {
   children: React.ReactNode;
-};
+} & Omit<BoxProps, "flexDirection">;
 
 const Row: React.FC<RowProps> = ({ children, ...rest }) => {
   return (

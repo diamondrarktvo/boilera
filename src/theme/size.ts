@@ -25,9 +25,9 @@ const moderateVerticalScale = (size: number, factor = 0.5) =>
 
 const scale = isTablet /*isTablet()*/ ? verticalScale : _scale;
 
-const ICON_SMALL = scale(17);
-const ICON_MEDIUM = scale(20);
-const ICON_LARGE = scale(30);
+const ICON_SMALL = scale(20);
+const ICON_MEDIUM = scale(30);
+const ICON_LARGE = scale(40);
 
 const IMAGE_SMALL = scale(50);
 const IMAGE_MEDIUM = scale(100);
@@ -35,7 +35,7 @@ const IMAGE_LARGE = scale(150);
 
 const DIMENSIONS = {
   height: {
-    small: "25%",
+    xsmall: "25%",
     medium: "50%",
     large: "75%",
     full: "100%",
