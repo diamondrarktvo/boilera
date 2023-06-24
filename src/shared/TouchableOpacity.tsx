@@ -11,7 +11,7 @@ type Props = {
 
 const TouchableOpacity = ({ children, onPress }: Props) => {
   return (
-    <RNTouchableOpacity activeOpacity={0.6} onPress={onPress}>
+    <RNTouchableOpacity activeOpacity={0.8} onPress={onPress}>
       {children}
     </RNTouchableOpacity>
   );

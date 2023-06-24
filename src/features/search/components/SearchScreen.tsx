@@ -1,4 +1,5 @@
 import { useTheme } from "@shopify/restyle";
+import { View } from "react-native";
 import { Alert, Pressable, StyleSheet } from "react-native";
 import {
   Button,
@@ -18,18 +19,8 @@ export default function SearchScreen() {
 
   return (
     <MainScreen typeOfScreen="tab">
-      <TouchableOpacity
-        onPress={() => Alert.alert("touché")}
-        activeOpacity={0.2}
-      >
-        <Row
-          alignItems="center"
-          borderWidth={1}
-          borderRadius="md"
-          borderColor="offWhite"
-          padding="xs"
-          marginBottom="s"
-        >
+      <TouchableOpacity onPress={() => Alert.alert("touché")}>
+        <Row alignItems="center" style={styles.card_shadow}>
           <Icon name="mic" size={Size.ICON_SMALL} color={colors.primary} />
           <Column flex={2} marginHorizontal="xs">
             <Text variant={"primaryBold"}>Destination</Text>
@@ -55,4 +46,19 @@ export default function SearchScreen() {
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  card_shadow: {
+    padding: "2%",
+    marginBottom: "4%",
+    borderRadius: 24,
+    backgroundColor: "#fff",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 6,
+      height: 5,
+    },
+    shadowOpacity: 0.45,
+    shadowRadius: 4.65,
+    elevation: 8,
+  },
+});
