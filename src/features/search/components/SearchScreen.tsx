@@ -1,18 +1,9 @@
-import { View, Text, StyleSheet } from "react-native";
+import { Button, MainScreen, Text } from "_shared";
 
 export default function SearchScreen() {
   return (
-    <View style={styles.container}>
-      <Text>Commencer à chercher</Text>
-    </View>
+    <MainScreen typeOfScreen="tab">
+      <Button label="Search" />
+    </MainScreen>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});

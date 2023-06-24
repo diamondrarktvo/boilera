@@ -11,6 +11,9 @@ export type StackParamList = {
 };
 
 export type TabParamList = {
-  home_screen: undefined;
   search_screen: undefined;
+  favorite_screen: undefined;
+  publish_screen: undefined;
+  message_and_notification_screen: undefined;
+  account_screen: undefined;
 };
