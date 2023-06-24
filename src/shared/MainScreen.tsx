@@ -4,7 +4,7 @@ import Text from "./Text";
 
 type Props = {
   children: React.ReactNode;
-  typeOfScreen: string;
+  typeOfScreen: "tab" | "stack" | "component" | "top";
   titleTabScreen?: string;
 } & Partial<BoxProps>;
 
@@ -30,7 +30,7 @@ const MainScreen: React.FC<Props> = ({
     <Box
       flex={1}
       paddingHorizontal="s"
-      paddingVertical="m"
+      paddingVertical="s"
       backgroundColor="mainBackground"
       {...props}
     >

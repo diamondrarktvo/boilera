@@ -6,12 +6,12 @@ type RowProps = Omit<BoxProps, "flexDirection"> & {
   children: React.ReactNode;
 };
 
-const Row: React.FC<RowProps> = ({ children, ...rest }) => {
+const Column: React.FC<RowProps> = ({ children, ...rest }) => {
   return (
-    <Box flexDirection={"row"} {...rest}>
+    <Box flexDirection={"column"} {...rest} alignItems={"flex-start"}>
       {children}
     </Box>
   );
 };
 
-export default Row;
+export default Column;

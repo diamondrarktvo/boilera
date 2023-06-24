@@ -48,7 +48,7 @@ const Button: React.FC<ButtonProps> = ({
         variant="primary"
         paddingVertical="s"
         paddingHorizontal="s"
-        borderRadius={"sm"}
+        borderRadius={"xs"}
         {...rest}
       >
         {loading ? (

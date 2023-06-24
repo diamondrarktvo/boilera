@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "boilera",
-    "slug": "boilera",
+    "name": "asa",
+    "slug": "asa",
     "version": "0.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -11,7 +11,9 @@
       "resizeMode": "contain",
       "backgroundColor": "#FF8323"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },

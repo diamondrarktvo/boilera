@@ -1,7 +1,7 @@
-import { StyleSheet, TouchableOpacity } from "react-native";
+import { StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { detailScreenNavigationType } from "../types/navigationTypes";
-import { Icon, MainScreen, Text } from "_shared";
+import { Icon, MainScreen, Text, TouchableOpacity } from "_shared";
 
 export default function FavoriteScreen() {
   const navigation = useNavigation<detailScreenNavigationType>();
