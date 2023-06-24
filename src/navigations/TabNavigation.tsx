@@ -1,17 +1,62 @@
 //IMPORT FROM NODE_MODULES
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { styles } from "./styles";
 
 //LOCAL IMPORT
 import { TabParamList } from "./Types";
 import { Icon } from "_shared";
-import { TABROUTES } from "_utils";
 import { useTheme } from "@shopify/restyle";
 import { Theme } from "_theme";
-
-//IMPORT SCREEN
+import {
+  AccountScreen,
+  FavoriteScreen,
+  InboxScreen,
+  PublishScreen,
+  SearchScreen,
+} from "_features";
 
 const Tab = createBottomTabNavigator<TabParamList>();
+
+//types
+interface TabRouteTypes {
+  name: keyof TabParamList;
+  component: React.FC<unknown>;
+  tabLabel: string;
+  icon: string;
+}
+
+//routes
+const TABROUTES: TabRouteTypes[] = [
+  {
+    name: "search_screen",
+    component: SearchScreen,
+    tabLabel: "Recherche",
+    icon: "search",
+  },
+  {
+    name: "favorite_screen",
+    component: FavoriteScreen,
+    tabLabel: "Favoris",
+    icon: "favorite-border",
+  },
+  {
+    name: "publish_screen",
+    component: PublishScreen,
+    tabLabel: "Publier",
+    icon: "public",
+  },
+  {
+    name: "inbox_screen",
+    component: InboxScreen,
+    tabLabel: "Boite de réception",
+    icon: "chat-bubble-outline",
+  },
+  {
+    name: "account_screen",
+    component: AccountScreen,
+    tabLabel: "Menu",
+    icon: "person-outline",
+  },
+];
 
 const TabNavigation = () => {
   const theme = useTheme<Theme>();

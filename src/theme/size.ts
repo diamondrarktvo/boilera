@@ -33,6 +33,21 @@ const IMAGE_SMALL = scale(50);
 const IMAGE_MEDIUM = scale(100);
 const IMAGE_LARGE = scale(150);
 
+const DIMENSIONS = {
+  height: {
+    small: "25%",
+    medium: "50%",
+    large: "75%",
+    full: "100%",
+  },
+  width: {
+    small: "25%",
+    medium: "50%",
+    large: "75%",
+    full: "100%",
+  },
+};
+
 const TYPO = {
   veryBig: 40,
   big: 24,
@@ -50,4 +65,5 @@ export const Size = {
   IMAGE_LARGE,
   IMAGE_MEDIUM,
   IMAGE_SMALL,
+  DIMENSIONS,
 };

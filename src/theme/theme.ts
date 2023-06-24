@@ -1,4 +1,5 @@
 import { createTheme } from "@shopify/restyle";
+import { Size } from "./size";
 import { Typography } from "./typography";
 
 //PALETTE
@@ -34,11 +35,15 @@ const theme = createTheme({
     textPrimaryColor: palette.orangePrimary,
   },
   spacing: {
+    none: "0%",
     s: "4%",
     m: "8%",
     l: "16%",
     xl: "32%",
     xxl: "40%",
+  },
+  sizes: {
+    ...Size.DIMENSIONS,
   },
   breakpoints: {
     phone: 0,

@@ -1,4 +1,4 @@
-import Box from "./Box";
+import Box, { BoxProps } from "./Box";
 import React from "react";
 import Text from "./Text";
 
@@ -6,7 +6,7 @@ type Props = {
   children: React.ReactNode;
   typeOfScreen: string;
   titleTabScreen?: string;
-};
+} & Partial<BoxProps>;
 
 type HeaderProps = {
   title?: string | undefined;
@@ -14,19 +14,25 @@ type HeaderProps = {
 
 const HeaderTabTitle = ({ title }: HeaderProps) => {
   return title ? (
-    <Box paddingVertical="m" backgroundColor="white">
+    <Box paddingVertical="m" backgroundColor="mainBackground">
       <Text variant="headerNavigation">{title}</Text>
     </Box>
   ) : null;
 };
 
-const MainScreen = ({ children, typeOfScreen, titleTabScreen }: Props) => {
+const MainScreen: React.FC<Props> = ({
+  children,
+  typeOfScreen,
+  titleTabScreen,
+  ...props
+}) => {
   return (
     <Box
       flex={1}
       paddingHorizontal="s"
       paddingVertical="m"
       backgroundColor="mainBackground"
+      {...props}
     >
       {typeOfScreen === "tab" && <HeaderTabTitle title={titleTabScreen} />}
       {children}
