@@ -1,9 +1,10 @@
 import { CardStyleInterpolators } from "@react-navigation/stack";
 import { Easing } from "react-native";
 import { StackNavigationConfig } from "./Types";
+import { TransitionSpec } from "@react-navigation/stack/lib/typescript/src/types";
 
 //config for transitionSpec
-const transitionConfig = {
+const transitionConfig: TransitionSpec = {
   animation: "timing",
   config: {
     duration: 60,
@@ -23,6 +24,8 @@ export const stackNavigationConfig: StackNavigationConfig = {
     },
     headerTitleAlign: "center",
   },
-  //screenOptionsForHiddenHeader: {},
+  screenOptionsForHiddenHeader: {
+    headerShown: false
+  },
   //screenOptionsTransparentHeader: {},
 };
