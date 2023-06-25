@@ -13,11 +13,18 @@ import {
   TouchableOpacity,
 } from "_shared";
 import { Size, Theme } from "_theme";
-import { SpeakText } from "_utils";
+import {
+  SpeakText,
+  storeDataToMmkvStorage,
+  getDataToMmkvStorage,
+} from "_utils";
 
 export default function SearchScreen() {
   const theme = useTheme<Theme>();
   const { colors, sizes } = theme;
+  storeDataToMmkvStorage("user.name", "Dama RKTVO");
+
+  console.log("eto zh mitazana : ", getDataToMmkvStorage("user.name"));
 
   return (
     <MainScreen typeOfScreen="tab">

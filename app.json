@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "asa",
-    "slug": "asa",
+    "name": "boilera",
+    "slug": "boilera",
     "version": "0.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -15,21 +15,22 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.diamondrarktvo.boilera"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.diamondrarktvo.asa"
+      "package": "com.diamondrarktvo.boilera"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "extra": {
       "eas": {
-        "projectId": "34686fb8-ad5d-4653-b677-ee1aebe3c7ea"
+        "projectId": "b9fd2a52-4666-408b-84c8-42959a610fa4"
       }
     },
     "owner": "diamondrarktvo"

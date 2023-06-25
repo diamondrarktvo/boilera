@@ -1,3 +1,4 @@
+import "expo-dev-client";
 import { useState } from "react";
 import { ThemeProvider, useTheme } from "@shopify/restyle";
 import "react-native-gesture-handler";

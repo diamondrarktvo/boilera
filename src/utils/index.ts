@@ -1,3 +1,4 @@
 import { SpeakText } from "./Speak";
+import { storeDataToMmkvStorage, getDataToMmkvStorage } from "./Storage";
 
-export { SpeakText };
+export { SpeakText, storeDataToMmkvStorage, getDataToMmkvStorage };
