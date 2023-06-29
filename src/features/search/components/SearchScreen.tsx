@@ -55,8 +55,8 @@ export default function SearchScreen() {
     <MainScreen typeOfScreen="tab">
       <TouchableOpacity onPress={() => Alert.alert("touché")}>
         <Row alignItems="center" style={styles.card_shadow}>
-          {!started ? <Icon name="mic" size={Size.ICON_SMALL} color={colors.primary} onPress={startSpeechToText} /> : null}
-          {started ? <Icon name="stop" size={Size.ICON_SMALL} color={colors.primary} onPress={stopSpeechToText} /> : null}
+          {!started ? <Icon name="mic" size={Size.ICON_SMALL} color={colors.primary} onPress={() => startSpeechToText()} /> : null}
+          {started ? <Icon name="stop" size={Size.ICON_SMALL} color={colors.primary} onPress={() => stopSpeechToText()} /> : null}
           <Column flex={2} marginHorizontal="xs">
             <Text variant={"primaryBold"}>Destination</Text>
             <Text variant={"tertiary"}>
