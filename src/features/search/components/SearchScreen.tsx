@@ -30,7 +30,7 @@ export default function SearchScreen() {
               name="mic"
               size={Size.ICON_SMALL}
               color={colors.primary}
-              onPress={() => startSpeechToText()}
+              onPress={startSpeechToText}
             />
           ) : null}
           {isStartRecord ? (
@@ -38,7 +38,7 @@ export default function SearchScreen() {
               name="stop"
               size={Size.ICON_SMALL}
               color={colors.primary}
-              onPress={() => stopSpeechToText()}
+              onPress={stopSpeechToText}
             />
           ) : null}
           <Column flex={2} marginHorizontal="xs">

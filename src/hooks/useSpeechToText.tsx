@@ -1,6 +1,7 @@
 import Voice, { SpeechErrorEvent } from "@react-native-voice/voice";
 import { useState } from "react";
 import { useEffect } from "react";
+import { ToastAndroid } from "react-native";
 import { VoiceResults } from "./types";
 
 export const useSpeechToText = () => {
@@ -18,8 +19,17 @@ export const useSpeechToText = () => {
   }, []);
 
   const startSpeechToText = async () => {
-    await Voice.start("fr-FR");
-    setIsStartRecord(true);
+    if (await Voice.isAvailable()) {
+      await Voice.start("fr-FR");
+      setIsStartRecord(true);
+    }
+
+    if (!Voice.isAvailable()) {
+      ToastAndroid.show(
+        "Votre téléphone ne prends pas en compte les vocaux",
+        ToastAndroid.LONG,
+      );
+    }
   };
 
   const stopSpeechToText = async () => {
