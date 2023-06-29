@@ -1,6 +1,6 @@
 import { FAB } from "@rneui/themed";
 import { useTheme } from "@shopify/restyle";
-import { View } from "react-native";
+import Voice, { SpeechErrorEvent, SpeechResultsEvent} from "@react-native-voice/voice";
 import { Alert, Pressable, StyleSheet } from "react-native";
 import {
   Button,
@@ -13,24 +13,50 @@ import {
   TouchableOpacity,
 } from "_shared";
 import { Size, Theme } from "_theme";
-import {
-  SpeakText,
-  storeDataToMmkvStorage,
-  getDataToMmkvStorage,
-} from "_utils";
+import { SpeakText } from "_utils";
+import { useEffect, useState } from "react";
 
 export default function SearchScreen() {
   const theme = useTheme<Theme>();
   const { colors, sizes } = theme;
-  storeDataToMmkvStorage("user.name", "Dama RKTVO");
 
-  console.log("eto zh mitazana : ", getDataToMmkvStorage("user.name"));
+  /*function andd hook for speech-to-text*/
+  let [started, setStarted] = useState(false);
+  let [results, setResults] = useState<SpeechResultsEvent>()
+
+  useEffect(() => {
+    Voice.onSpeechError = onSpeechError;
+    Voice.onSpeechResults = onSpeechResults;
+
+    return () => {
+      Voice.destroy().then(Voice.removeAllListeners);
+    };
+  }, []);
+
+  const startSpeechToText = async () => {
+    await Voice.start("en-NZ");
+    setStarted(true);
+  };
+
+  const stopSpeechToText = async () => {
+    await Voice.stop();
+    setStarted(false);
+  };
+
+  const onSpeechResults = (value: SpeechResultsEvent) => {
+    setResults(value);
+  };
+
+  const onSpeechError = ({ error }: SpeechErrorEvent) => {
+    console.log("error speech to text : ", error);
+  };
 
   return (
     <MainScreen typeOfScreen="tab">
       <TouchableOpacity onPress={() => Alert.alert("touché")}>
         <Row alignItems="center" style={styles.card_shadow}>
-          <Icon name="mic" size={Size.ICON_SMALL} color={colors.primary} />
+          {!started ? <Icon name="mic" size={Size.ICON_SMALL} color={colors.primary} onPress={startSpeechToText} /> : null}
+          {started ? <Icon name="stop" size={Size.ICON_SMALL} color={colors.primary} onPress={stopSpeechToText} /> : null}
           <Column flex={2} marginHorizontal="xs">
             <Text variant={"primaryBold"}>Destination</Text>
             <Text variant={"tertiary"}>
