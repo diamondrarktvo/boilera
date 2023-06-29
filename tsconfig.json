@@ -11,6 +11,7 @@
          "_features": ["src/features"],
          "_theme": ["src/theme"],
          "_utils": ["src/utils"],
+         "_hooks": ["src/hooks"],
          "_services": ["src/services"],
          "_i18n": ["src/i18n"],
          "_store": ["src/store"],

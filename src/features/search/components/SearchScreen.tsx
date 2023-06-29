@@ -1,6 +1,5 @@
 import { FAB } from "@rneui/themed";
 import { useTheme } from "@shopify/restyle";
-import { View } from "react-native";
 import { Alert, Pressable, StyleSheet } from "react-native";
 import {
   Button,
@@ -13,24 +12,35 @@ import {
   TouchableOpacity,
 } from "_shared";
 import { Size, Theme } from "_theme";
-import {
-  SpeakText,
-  storeDataToMmkvStorage,
-  getDataToMmkvStorage,
-} from "_utils";
+import { SpeakText } from "_utils";
+import { useSpeechToText } from "_hooks";
 
 export default function SearchScreen() {
   const theme = useTheme<Theme>();
   const { colors, sizes } = theme;
-  storeDataToMmkvStorage("user.name", "Dama RKTVO");
-
-  console.log("eto zh mitazana : ", getDataToMmkvStorage("user.name"));
+  const { isStartRecord, textFromSpeech, startSpeechToText, stopSpeechToText } =
+    useSpeechToText();
 
   return (
     <MainScreen typeOfScreen="tab">
       <TouchableOpacity onPress={() => Alert.alert("touché")}>
         <Row alignItems="center" style={styles.card_shadow}>
-          <Icon name="mic" size={Size.ICON_SMALL} color={colors.primary} />
+          {!isStartRecord ? (
+            <Icon
+              name="mic"
+              size={Size.ICON_SMALL}
+              color={colors.primary}
+              onPress={startSpeechToText}
+            />
+          ) : null}
+          {isStartRecord ? (
+            <Icon
+              name="stop"
+              size={Size.ICON_SMALL}
+              color={colors.primary}
+              onPress={stopSpeechToText}
+            />
+          ) : null}
           <Column flex={2} marginHorizontal="xs">
             <Text variant={"primaryBold"}>Destination</Text>
             <Text variant={"tertiary"}>
@@ -48,6 +58,13 @@ export default function SearchScreen() {
           >
             <Icon name="tune" size={Size.ICON_SMALL} color={colors.primary} />
           </Pressable>
+        </Row>
+        <Row>
+          {textFromSpeech && (
+            <Text variant={"primary"}>
+              Vous avez prononcé : {textFromSpeech}
+            </Text>
+          )}
         </Row>
       </TouchableOpacity>
       <FAB
