@@ -113,9 +113,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace 'com.diamondrarktvo.asa'
+    namespace 'com.diamondrarktvo.boilera'
     defaultConfig {
-        applicationId 'com.diamondrarktvo.asa'
+        applicationId 'com.diamondrarktvo.boilera'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

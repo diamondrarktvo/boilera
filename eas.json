@@ -7,7 +7,7 @@
         "simulator": true
       }
     },
-    "preview_weekly": {
+    "preview": {
       "android": {
         "buildType": "apk"
       }
