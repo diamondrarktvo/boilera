@@ -14,6 +14,7 @@
           { "_shared": "./src/shared" },
           { "_store": "./src/store" },
           { "_theme": "./src/theme" },
+          { "_hooks": "./src/hooks" },
           { "_utils": "./src/utils" }
         ],
         "extensions": [".js", ".jsx", ".ts", ".tsx"]

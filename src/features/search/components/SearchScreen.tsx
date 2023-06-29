@@ -1,6 +1,5 @@
 import { FAB } from "@rneui/themed";
 import { useTheme } from "@shopify/restyle";
-import Voice, { SpeechErrorEvent, SpeechResultsEvent} from "@react-native-voice/voice";
 import { Alert, Pressable, StyleSheet } from "react-native";
 import {
   Button,
@@ -14,49 +13,34 @@ import {
 } from "_shared";
 import { Size, Theme } from "_theme";
 import { SpeakText } from "_utils";
-import { useEffect, useState } from "react";
+import { useSpeechToText } from "_hooks";
 
 export default function SearchScreen() {
   const theme = useTheme<Theme>();
   const { colors, sizes } = theme;
-
-  /*function andd hook for speech-to-text*/
-  let [started, setStarted] = useState(false);
-  let [results, setResults] = useState<SpeechResultsEvent>()
-
-  useEffect(() => {
-    Voice.onSpeechError = onSpeechError;
-    Voice.onSpeechResults = onSpeechResults;
-
-    return () => {
-      Voice.destroy().then(Voice.removeAllListeners);
-    };
-  }, []);
-
-  const startSpeechToText = async () => {
-    await Voice.start("en-NZ");
-    setStarted(true);
-  };
-
-  const stopSpeechToText = async () => {
-    await Voice.stop();
-    setStarted(false);
-  };
-
-  const onSpeechResults = (value: SpeechResultsEvent) => {
-    setResults(value);
-  };
-
-  const onSpeechError = ({ error }: SpeechErrorEvent) => {
-    console.log("error speech to text : ", error);
-  };
+  const { isStartRecord, textFromSpeech, startSpeechToText, stopSpeechToText } =
+    useSpeechToText();
 
   return (
     <MainScreen typeOfScreen="tab">
       <TouchableOpacity onPress={() => Alert.alert("touché")}>
         <Row alignItems="center" style={styles.card_shadow}>
-          {!started ? <Icon name="mic" size={Size.ICON_SMALL} color={colors.primary} onPress={() => startSpeechToText()} /> : null}
-          {started ? <Icon name="stop" size={Size.ICON_SMALL} color={colors.primary} onPress={() => stopSpeechToText()} /> : null}
+          {!isStartRecord ? (
+            <Icon
+              name="mic"
+              size={Size.ICON_SMALL}
+              color={colors.primary}
+              onPress={() => startSpeechToText()}
+            />
+          ) : null}
+          {isStartRecord ? (
+            <Icon
+              name="stop"
+              size={Size.ICON_SMALL}
+              color={colors.primary}
+              onPress={() => stopSpeechToText()}
+            />
+          ) : null}
           <Column flex={2} marginHorizontal="xs">
             <Text variant={"primaryBold"}>Destination</Text>
             <Text variant={"tertiary"}>
@@ -74,6 +58,13 @@ export default function SearchScreen() {
           >
             <Icon name="tune" size={Size.ICON_SMALL} color={colors.primary} />
           </Pressable>
+        </Row>
+        <Row>
+          {textFromSpeech && (
+            <Text variant={"primary"}>
+              Vous avez prononcé : {textFromSpeech}
+            </Text>
+          )}
         </Row>
       </TouchableOpacity>
       <FAB
