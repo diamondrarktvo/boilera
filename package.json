@@ -1,12 +1,12 @@
 {
   "name": "boilera",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
-    "start": "expo start --dev-client",
-    "clean": "expo start -c",
+    "start": "npx expo start --dev-client",
+    "clean": "npx expo start -c",
     "android": "npx react-native run-android",
     "ios": "npx react-native run-ios",
-    "web": "expo start --web"
+    "web": "npx expo start --web"
   },
   "dependencies": {
     "@react-native-masked-view/masked-view": "0.2.8",
@@ -21,7 +21,7 @@
     "@shopify/restyle": "^2.4.2",
     "babel-plugin-module-resolver": "^5.0.0",
     "babel-plugin-transform-remove-console": "^6.9.4",
-    "expo": "~48.0.18",
+    "expo": "~49.0.0",
     "expo-dev-client": "~2.2.1",
     "expo-font": "~11.1.1",
     "expo-speech": "~11.1.1",
@@ -29,7 +29,7 @@
     "expo-status-bar": "~1.4.4",
     "expo-system-ui": "~2.2.1",
     "react": "18.2.0",
-    "react-native": "0.71.8",
+    "react-native": "0.72.0",
     "react-native-gesture-handler": "~2.9.0",
     "react-native-mmkv": "^2.10.0",
     "react-native-pager-view": "6.1.2",
@@ -39,7 +39,7 @@
     "react-native-screens": "~3.20.0",
     "react-native-tab-view": "^3.5.1",
     "react-native-vector-icons": "^9.2.0",
-    "react-native-web": "~0.18.10"
+    "react-native-web": "~0.19.6"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
