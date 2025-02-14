@@ -1,3 +1,1 @@
-import { useSpeechToText } from "./useSpeechToText";
-
-export { useSpeechToText };
+export { useGetTheme } from "./useGetTheme";

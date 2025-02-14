@@ -2,68 +2,37 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 //LOCAL IMPORT
-import { TabParamList } from "./Types";
-import { Icon } from "_shared";
+import { TabParamList, TabRouteTypes } from "./types";
 import { useTheme } from "@shopify/restyle";
-import { Theme } from "_theme";
-import {
-  AccountScreen,
-  FavoriteScreen,
-  InboxScreen,
-  PublishScreen,
-  SearchScreen,
-} from "_features";
+import { ThemeT } from "_theme";
+import { VoiceAnalysisScreen, SettingScreen } from "_features";
+import { Icon } from "_shared";
+import { Layouts } from "_utils";
 
 const Tab = createBottomTabNavigator<TabParamList>();
-
-//types
-interface TabRouteTypes {
-  name: keyof TabParamList;
-  component: React.FC<unknown>;
-  tabLabel: string;
-  icon: string;
-}
 
 //routes
 const TABROUTES: TabRouteTypes[] = [
   {
-    name: "search_screen",
-    component: SearchScreen,
+    name: "voice_analysis_screen",
+    component: VoiceAnalysisScreen,
+    tabLabel: "Accueil",
+    icon: "home",
+  },
+  {
+    name: "setting_screen",
+    component: SettingScreen,
     tabLabel: "Recherche",
     icon: "search",
-  },
-  {
-    name: "favorite_screen",
-    component: FavoriteScreen,
-    tabLabel: "Favoris",
-    icon: "favorite-border",
-  },
-  {
-    name: "publish_screen",
-    component: PublishScreen,
-    tabLabel: "Publier",
-    icon: "public",
-  },
-  {
-    name: "inbox_screen",
-    component: InboxScreen,
-    tabLabel: "Boite de réception",
-    icon: "chat-bubble-outline",
-  },
-  {
-    name: "account_screen",
-    component: AccountScreen,
-    tabLabel: "Menu",
-    icon: "person-outline",
   },
 ];
 
 const TabNavigation = () => {
-  const theme = useTheme<Theme>();
-  const { primary, mainForeground, mainBackground } = theme.colors;
+  const theme = useTheme<ThemeT>();
+  const { primary, mainForeground, mainBackground, white } = theme.colors;
   return (
     <Tab.Navigator
-      initialRouteName="search_screen"
+      initialRouteName="voice_analysis_screen"
       screenOptions={{
         headerShown: false,
         tabBarHideOnKeyboard: true,
@@ -80,14 +49,13 @@ const TabNavigation = () => {
             title: route.tabLabel,
             tabBarActiveTintColor: primary,
             tabBarInactiveTintColor: mainForeground,
-            /*tabBarLabel: ({ focused }) =>
-              focused ? (
-                <Text style={{ color: "white" }}>{route.tabLabel}</Text>
-              ) : (
-                ""
-              ),*/
+            tabBarActiveBackgroundColor: primary,
             tabBarIcon: ({ focused, color }) => (
-              <Icon name={route.icon} color={color} size={focused ? 32 : 22} />
+              <Icon
+                name={route.icon}
+                color={focused ? white : primary}
+                size={focused ? Layouts.RFValue(18) : Layouts.RFValue(16)}
+              />
             ),
           }}
         />

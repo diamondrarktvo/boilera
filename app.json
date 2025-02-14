@@ -1,48 +1,31 @@
 {
   "expo": {
-    "name": "boilera",
-    "slug": "boilera",
-    "version": "0.0.1",
+    "name": "medinote",
+    "slug": "medinote",
+    "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
+    "newArchEnabled": true,
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#FF8323"
+      "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
     "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.diamondrarktvo.boilera"
+      "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      },
-      "package": "com.diamondrarktvo.boilera"
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
-      [
-        "@react-native-voice/voice",
-        {
-          "microphonePermission": "Allow Voice to Text Tutorial to access the microphone",
-          "speechRecognitionPermission": "Allow Voice to Text Tutorial to securely recognize user speech"
-        }
-      ],
       "expo-font"
-    ],
-    "extra": {
-      "eas": {
-        "projectId": "b9fd2a52-4666-408b-84c8-42959a610fa4"
-      }
-    },
-    "owner": "diamondrarktvo"
+    ]
   }
 }

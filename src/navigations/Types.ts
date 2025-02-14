@@ -7,18 +7,16 @@ export interface StackNavigationConfig {
 
 export type StackParamList = {
   main_tabs: undefined;
-  details_book: undefined;
 };
 
 export type TabParamList = {
-  search_screen: undefined;
-  favorite_screen: undefined;
-  publish_screen: undefined;
-  inbox_screen: undefined;
-  account_screen: undefined;
+  voice_analysis_screen: undefined;
+  setting_screen: undefined;
 };
 
-export type TopParamList = {
-  message_screen: undefined;
-  notification_screen: undefined;
-};
+export interface TabRouteTypes {
+  name: keyof TabParamList;
+  component: React.FC<unknown>;
+  tabLabel: string;
+  icon: string;
+}
