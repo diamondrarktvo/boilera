@@ -9,11 +9,6 @@ Boilera est un boilerplate React Native sous Expo, conçu pour faciliter le dém
 - [Caractéristiques](#caractéristiques)
 - [Prérequis](#prérequis)
 - [Installation](#installation)
-- [Structure du projet](#structure-du-projet)
-- [Utilisation](#utilisation)
-- [Personnalisation](#personnalisation)
-- [Contribuer](#contribuer)
-- [Licence](#licence)
 
 ---
 
