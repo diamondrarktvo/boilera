@@ -40,7 +40,7 @@ Boilera est un boilerplate React Native sous Expo, conçu pour faciliter le dém
 1. **Cloner le dépôt :**
 
    ```bash
-   git clone https://github.com/votre-utilisateur/boilera.git
+   git clone https://github.com/diamondrarktvo/boilera.git
    cd boilera
    ```
 2. **Installer les dépendances :**
