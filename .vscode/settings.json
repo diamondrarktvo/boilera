@@ -1,7 +1,5 @@
 {
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
-  }
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "deepscan.enable": true,
+  "java.compile.nullAnalysis.mode": "automatic"
 }
