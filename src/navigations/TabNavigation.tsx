@@ -5,39 +5,48 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { TabParamList, TabRouteTypes } from "./types";
 import { useTheme } from "@shopify/restyle";
 import { ThemeT } from "_theme";
-import { VoiceAnalysisScreen, SettingScreen } from "_features";
-import { Icon } from "_shared";
+import { RoomScreen, SettingScreen } from "_features";
+import { Icon, Text } from "_shared";
 import { Layouts } from "_utils";
+import { useTranslation } from "react-i18next";
+import { useMemo } from "react";
 
 const Tab = createBottomTabNavigator<TabParamList>();
 
-//routes
-const TABROUTES: TabRouteTypes[] = [
-  {
-    name: "voice_analysis_screen",
-    component: VoiceAnalysisScreen,
-    tabLabel: "Accueil",
-    icon: "home",
-  },
-  {
-    name: "setting_screen",
-    component: SettingScreen,
-    tabLabel: "Recherche",
-    icon: "search",
-  },
-];
-
 const TabNavigation = () => {
+  const { t } = useTranslation("common");
   const theme = useTheme<ThemeT>();
-  const { primary, mainForeground, mainBackground, white } = theme.colors;
+  const { primary, mainForeground, black } = theme.colors;
+
+  //routes
+  const TABROUTES: TabRouteTypes[] = useMemo(() => {
+    return [
+      {
+        name: "room_screen",
+        component: RoomScreen,
+        tabLabel: t("tab_navigation.label.recording"),
+        icon: "record-voice-over",
+      },
+      {
+        name: "setting_screen",
+        component: SettingScreen,
+        tabLabel: t("tab_navigation.label.setting"),
+        icon: "settings",
+      },
+    ];
+  }, [t]);
+
   return (
     <Tab.Navigator
-      initialRouteName="voice_analysis_screen"
+      initialRouteName="room_screen"
       screenOptions={{
         headerShown: false,
         tabBarHideOnKeyboard: true,
-        tabBarShowLabel: false,
-        tabBarStyle: [{ backgroundColor: mainBackground }],
+        tabBarStyle: [
+          {
+            height: Layouts.heightPercentageToDP(7),
+          },
+        ],
       }}
     >
       {TABROUTES.map((route) => (
@@ -49,13 +58,20 @@ const TabNavigation = () => {
             title: route.tabLabel,
             tabBarActiveTintColor: primary,
             tabBarInactiveTintColor: mainForeground,
-            tabBarActiveBackgroundColor: primary,
-            tabBarIcon: ({ focused, color }) => (
+            tabBarIcon: ({ focused }) => (
               <Icon
                 name={route.icon}
-                color={focused ? white : primary}
-                size={focused ? Layouts.RFValue(18) : Layouts.RFValue(16)}
+                color={focused ? primary : black}
+                size={focused ? Layouts.RFValue(20) : Layouts.RFValue(16)}
               />
+            ),
+            tabBarLabel: ({ focused }) => (
+              <Text
+                variant={focused ? "primaryBold" : "primary"}
+                color={focused ? "primary" : "black"}
+              >
+                {route.tabLabel}
+              </Text>
             ),
           }}
         />

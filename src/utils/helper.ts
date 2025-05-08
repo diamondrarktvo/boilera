@@ -1,9 +1,10 @@
-import { PixelRatio, Platform, StatusBar } from "react-native";
+import { PixelRatio, Platform, StatusBar, TextStyle } from "react-native";
 import moment from "moment";
 import { isIphoneX } from "react-native-iphone-x-helper";
 import Toast from "react-native-toast-message";
-import { SCREEN_HEIGHT, SCREEN_WIDTH } from "./constants";
-
+import { SCREEN_HEIGHT, SCREEN_WIDTH, SUPPORTED_LANGUAGES } from "./constants";
+import { LanguageCodeSupportedT } from "./Types";
+import packageJson from "../../package.json";
 /**
  *
  * @param inputDate
@@ -161,6 +162,56 @@ const isTablet = () => {
   return smallestDimension >= 600;
 };
 
+const changeColorStyleFromRNTypo = (style: TextStyle): TextStyle => {
+  return { ...style, color: "black" };
+};
+
+const isLanguageSupported = (lang: LanguageCodeSupportedT) => {
+  return SUPPORTED_LANGUAGES.includes(lang);
+};
+
+const getAppVersion = () => {
+  return packageJson.version;
+};
+
+function getFirstLetter(text: string): string {
+  if (text === "") {
+    return "";
+  }
+  return text.charAt(0);
+}
+
+function extractFileInfo(filePath: string) {
+  // Extraire le nom du fichier
+  const fileNameMatch = filePath.match(/[^/]+$/);
+
+  // Extraire l'extension
+  const extensionMatch = filePath.match(/\.([a-zA-Z0-9]+)$/);
+  const extension = extensionMatch ? extensionMatch[1].toLowerCase() : null;
+  const fileName = fileNameMatch ? fileNameMatch[0] : `video.${extension}`;
+
+  // Déduire le MIME type
+  const mimeTypes: Record<string, string> = {
+    ".aac": "audio/aac",
+    ".mp3": "audio/mpeg",
+    ".wav": "audio/wav",
+    ".ogg": "audio/ogg",
+    ".flac": "audio/flac",
+    ".m4a": "audio/mp4",
+    ".opus": "audio/opus",
+    ".oga": "audio/ogg",
+    ".weba": "audio/webm",
+    ".3gp": "audio/3gpp",
+  };
+
+  const content_type =
+    extension && mimeTypes[extension]
+      ? mimeTypes[extension]
+      : "application/octet-stream";
+
+  return { fileName, content_type };
+}
+
 export const Layouts = {
   widthPercentageToDP,
   heightPercentageToDP,
@@ -180,4 +231,9 @@ export const DateUtils = {
 
 export const Helpers = {
   showToast,
+  changeColorStyleFromRNTypo,
+  isLanguageSupported,
+  getAppVersion,
+  getFirstLetter,
+  extractFileInfo,
 };
