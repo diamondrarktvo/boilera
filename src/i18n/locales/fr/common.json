@@ -1,6 +1,7 @@
 {
    "tab_navigation": {
       "label": {
+         "home": "Accueil",
          "setting": "Paramètre"
       }
    },

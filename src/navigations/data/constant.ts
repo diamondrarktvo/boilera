@@ -1,4 +1,3 @@
-import { TabParamList} from "../Types/Types";
+import { TabParamList } from '../Types/Types';
 
-
-export const DEFAULT_TAB_ROUTE: keyof TabParamList = "setting_screen";
+export const DEFAULT_TAB_ROUTE: keyof TabParamList = 'home_screen';

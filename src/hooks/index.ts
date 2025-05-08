@@ -1,3 +1,1 @@
-export { useGetTheme } from "./useGetTheme";
-
-export { useErrorHandler } from "./useErrorHandler";
+export { useGetTheme } from './useGetTheme';
