@@ -37,6 +37,7 @@ const theme = createTheme({
       buttonSecondaryBackground: palette.secondaryBlue,
       cardLightBackground: palette.lightWhite,
       text: palette.darkGrey,
+      textBottomSheet: palette.darkGrey,
       textPrimaryColor: palette.primaryBlue,
       overlayBackground: palette.overlayBackground,
       transparent: palette.transparent,
@@ -118,6 +119,7 @@ const darkTheme = createTheme({
       white: palette.darkForeground,
       black: palette.lightGrey,
       text: palette.lightWhite,
+      textBottomSheet: palette.darkGrey,
       overlayBackground: palette.darkOverlayBackground,
    },
 });
