@@ -2,5 +2,6 @@
   "java.configuration.updateBuildConfiguration": "automatic",
   "deepscan.enable": true,
   "java.compile.nullAnalysis.mode": "automatic",
-  "prettier.enable": true
+  "prettier.enable": true,
+  "deepscan.enable": true
 }
