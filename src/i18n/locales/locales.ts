@@ -1,21 +1,17 @@
 //FR
-import fr_common from "./fr/common.json";
-import fr_setting from "./fr/setting.json";
-import fr_recording from "./fr/recording.json";
+import fr_common from './fr/common.json';
+import fr_setting from './fr/setting.json';
 
 //EN
-import en_common from "./en/common.json";
-import en_setting from "./en/setting.json";
-import en_recording from "./en/recording.json";
+import en_common from './en/common.json';
+import en_setting from './en/setting.json';
 
 export const fr = {
-  common: fr_common,
-  setting: fr_setting,
-  recording: fr_recording,
+   common: fr_common,
+   setting: fr_setting,
 };
 
 export const en = {
-  common: en_common,
-  setting: en_setting,
-  recording: en_recording,
+   common: en_common,
+   setting: en_setting,
 };

@@ -1,31 +1,28 @@
 {
-  "tab_navigation": {
-    "label": {
-      "recording": "Enregistrement",
-      "setting": "Paramètre"
-    }
-  },
-  "language": {
-    "label_choice": "Choisir votre langue",
-    "fr": "Français",
-    "en": "Anglais"
-  },
-  "theme": {
-    "label_choice": "Choisissez votre thème",
-    "light": "Clair",
-    "dark": "Sombre"
-  },
-  "content": {
-    "empty_menu": "Aucun menu n'est disponible pour le moment.",
-    "empty_room": "Aucun salon disponible pour le moment.",
-    "emmty_voice_record": "Aucun enregistrement vocal pour le moment",
-    "app_version": "Version {{versionNumber}}"
-  },
-  "actions": {
-    "ok": "Ok",
-    "agree": "D'accord",
-    "validate": "Valider",
-    "confirm": "Confirmer",
-    "choose": "Choisir"
-  }
+   "tab_navigation": {
+      "label": {
+         "setting": "Paramètre"
+      }
+   },
+   "language": {
+      "label_choice": "Choisir votre langue",
+      "fr": "Français",
+      "en": "Anglais"
+   },
+   "theme": {
+      "label_choice": "Choisissez votre thème",
+      "light": "Clair",
+      "dark": "Sombre"
+   },
+   "content": {
+      "empty_menu": "Aucun menu n'est disponible pour le moment.",
+      "app_version": "Version {{versionNumber}}"
+   },
+   "actions": {
+      "ok": "Ok",
+      "agree": "D'accord",
+      "validate": "Valider",
+      "confirm": "Confirmer",
+      "choose": "Choisir"
+   }
 }

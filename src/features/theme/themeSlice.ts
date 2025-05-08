@@ -27,4 +27,4 @@ export const selectors = {
 
 export const { setTheme, resetTheme } = themeSlice.actions;
 
-export default themeSlice;
+export default themeSlice.reducer;

@@ -1,8 +1,9 @@
-//prettier-ignore
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
     "jsx": "react-native",
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
     "strict": true,
      "baseUrl": ".",
      "paths": {

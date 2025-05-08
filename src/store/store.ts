@@ -1,14 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { BaseApi } from "_services";
-import { themeSlice } from "../features/theme";
+import themeReducer from "../features/theme/themeSlice";
 import { useDispatch, useSelector } from "react-redux";
 import type { TypedUseSelectorHook } from "react-redux";
 
 export const store = configureStore({
   reducer: {
     [BaseApi.reducerPath]: BaseApi.reducer,
-    [themeSlice.name]: themeSlice.reducer,
+    theme: themeReducer,
   },
 
   middleware: (getDefaultMiddleware) =>

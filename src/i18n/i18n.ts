@@ -32,3 +32,5 @@ i18next
     defaultNS: DEFAULT_NS,
     resources: Locales,
   });
+
+  export default i18next;
