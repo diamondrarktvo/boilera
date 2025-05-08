@@ -1,0 +1,9 @@
+{
+   "menu": {
+      "general": {
+         "title": "Général",
+         "item_language": "Langue",
+         "item_theme": "Thème"
+      }
+   }
+}

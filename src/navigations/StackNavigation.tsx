@@ -4,7 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 
 //LOCAL IMPORT
 import { stackNavigationConfig } from "./configStack";
-import { StackParamList } from "./types";
+import { StackParamList } from "./Types/Types";
 
 //IMPORT NAVIGATION TAB
 import TabNavigation from "./TabNavigation";

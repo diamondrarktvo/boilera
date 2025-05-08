@@ -1,67 +1,64 @@
 //IMPORT FROM NODE_MODULES
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 //LOCAL IMPORT
-import { TabParamList, TabRouteTypes } from "./types";
-import { useTheme } from "@shopify/restyle";
-import { ThemeT } from "_theme";
-import { VoiceAnalysisScreen, SettingScreen } from "_features";
-import { Icon } from "_shared";
-import { Layouts } from "_utils";
+import { TabParamList } from './Types/Types';
+import { useTheme } from '@shopify/restyle';
+import { ThemeT } from '_theme';
+import { Icon, Text } from '_shared';
+import { Layouts } from '_utils';
+import { useTranslation } from 'react-i18next';
+import { DEFAULT_TAB_ROUTE } from './data/constant';
+import { TABROUTES } from './data/tabNavigationData';
 
 const Tab = createBottomTabNavigator<TabParamList>();
 
-//routes
-const TABROUTES: TabRouteTypes[] = [
-  {
-    name: "voice_analysis_screen",
-    component: VoiceAnalysisScreen,
-    tabLabel: "Accueil",
-    icon: "home",
-  },
-  {
-    name: "setting_screen",
-    component: SettingScreen,
-    tabLabel: "Recherche",
-    icon: "search",
-  },
-];
-
 const TabNavigation = () => {
-  const theme = useTheme<ThemeT>();
-  const { primary, mainForeground, mainBackground, white } = theme.colors;
-  return (
-    <Tab.Navigator
-      initialRouteName="voice_analysis_screen"
-      screenOptions={{
-        headerShown: false,
-        tabBarHideOnKeyboard: true,
-        tabBarShowLabel: false,
-        tabBarStyle: [{ backgroundColor: mainBackground }],
-      }}
-    >
-      {TABROUTES.map((route) => (
-        <Tab.Screen
-          key={route.name}
-          name={route.name}
-          component={route.component}
-          options={{
-            title: route.tabLabel,
-            tabBarActiveTintColor: primary,
-            tabBarInactiveTintColor: mainForeground,
-            tabBarActiveBackgroundColor: primary,
-            tabBarIcon: ({ focused, color }) => (
-              <Icon
-                name={route.icon}
-                color={focused ? white : primary}
-                size={focused ? Layouts.RFValue(18) : Layouts.RFValue(16)}
-              />
-            ),
-          }}
-        />
-      ))}
-    </Tab.Navigator>
-  );
+   const { t } = useTranslation('common');
+   const theme = useTheme<ThemeT>();
+   const { primary, mainForeground, mainBackground, black } = theme.colors;
+
+   return (
+      <Tab.Navigator
+         initialRouteName={DEFAULT_TAB_ROUTE}
+         screenOptions={{
+            headerShown: false,
+            tabBarHideOnKeyboard: true,
+            tabBarStyle: [
+               {
+                  backgroundColor: mainBackground,
+                  height: Layouts.heightPercentageToDP(7),
+               },
+            ],
+         }}>
+         {TABROUTES.map(route => (
+            <Tab.Screen
+               key={route.name}
+               name={route.name}
+               component={route.component}
+               options={{
+                  title: route.tabLabel,
+                  tabBarActiveTintColor: primary,
+                  tabBarInactiveTintColor: mainForeground,
+                  tabBarIcon: ({ focused }) => (
+                     <Icon
+                        name={route.icon}
+                        color={focused ? primary : black}
+                        size={focused ? Layouts.RFValue(20) : Layouts.RFValue(16)}
+                     />
+                  ),
+                  tabBarLabel: ({ focused }) => (
+                     <Text
+                        variant={focused ? 'primaryBold' : 'primary'}
+                        color={focused ? 'primary' : 'black'}>
+                        {route.tabLabel}
+                     </Text>
+                  ),
+               }}
+            />
+         ))}
+      </Tab.Navigator>
+   );
 };
 
 export default TabNavigation;

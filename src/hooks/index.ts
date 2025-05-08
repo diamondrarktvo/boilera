@@ -1,1 +1,1 @@
-export { useGetTheme } from "./useGetTheme";
+export { useGetTheme } from './useGetTheme';
