@@ -16,7 +16,7 @@ const Tab = createBottomTabNavigator<TabParamList>();
 const TabNavigation = () => {
    const { t } = useTranslation('common');
    const theme = useTheme<ThemeT>();
-   const { primary, mainForeground, black } = theme.colors;
+   const { primary, mainForeground, mainBackground, black } = theme.colors;
 
    return (
       <Tab.Navigator
@@ -26,6 +26,7 @@ const TabNavigation = () => {
             tabBarHideOnKeyboard: true,
             tabBarStyle: [
                {
+                  backgroundColor: mainBackground,
                   height: Layouts.heightPercentageToDP(7),
                },
             ],

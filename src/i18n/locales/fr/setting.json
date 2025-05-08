@@ -1,9 +1,9 @@
 {
-  "menu": {
-    "menu_general": {
-      "title": "Général",
-      "item_language": "Langue",
-      "item_theme": "Thème"
-    }
-  }
+   "menu": {
+      "general": {
+         "title": "Général",
+         "item_language": "Langue",
+         "item_theme": "Thème"
+      }
+   }
 }
