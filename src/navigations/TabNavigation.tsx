@@ -2,14 +2,15 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 //LOCAL IMPORT
-import { TabParamList } from './Types/Types';
+import { TabParamList, TabRouteTypes } from './Types/Types';
 import { useTheme } from '@shopify/restyle';
 import { ThemeT } from '_theme';
 import { Icon, Text } from '_shared';
 import { Layouts } from '_utils';
 import { useTranslation } from 'react-i18next';
 import { DEFAULT_TAB_ROUTE } from './data/constant';
-import { TABROUTES } from './data/tabNavigationData';
+import { HomeScreen, SettingScreen } from '_features';
+import { useMemo } from 'react';
 
 const Tab = createBottomTabNavigator<TabParamList>();
 
@@ -17,6 +18,24 @@ const TabNavigation = () => {
    const { t } = useTranslation('common');
    const theme = useTheme<ThemeT>();
    const { primary, mainForeground, mainBackground, black } = theme.colors;
+
+   //routes
+   const TABROUTES: TabRouteTypes[] = useMemo(() => {
+      return [
+         {
+            name: 'home_screen',
+            component: HomeScreen,
+            tabLabel: t('tab_navigation.label.home'),
+            icon: 'home',
+         },
+         {
+            name: 'setting_screen',
+            component: SettingScreen,
+            tabLabel: t('tab_navigation.label.setting'),
+            icon: 'settings',
+         },
+      ];
+   }, [t]);
 
    return (
       <Tab.Navigator
