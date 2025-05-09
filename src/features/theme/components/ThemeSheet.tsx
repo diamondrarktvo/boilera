@@ -46,7 +46,7 @@ const ThemeSheet = React.forwardRef<BottomSheetModal, ThemeSheetProps>((props, r
 
    return (
       <BottomSheet ref={ref} snapPoints={[1, '24%']}>
-         <Text variant={'primaryBold'} textAlign={'center'}>
+         <Text variant={'primaryBold'} color={'textBottomSheet'} textAlign={'center'}>
             {t('theme.label_choice')}
          </Text>
          {ALL_THEME_SUPPORTED.map(theme => (
