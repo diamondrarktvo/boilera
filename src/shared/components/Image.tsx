@@ -1,7 +1,12 @@
 import React from "react";
-import { Image as RNEImage, ImageProps as RNEImageProps } from "@rneui/themed";
+import {
+  Image as ExpoImage,
+  ImageProps as ExpoImageProps
+} from "expo-image";
 
-const Image = ({ ...props }: RNEImageProps) => <RNEImage {...props} />;
+const Image = ({ ...props }: ExpoImageProps) => {
+  return <ExpoImage {...props} />;
+};
 
-export type ImageProps = React.ComponentProps<typeof Image>;
+export type ImageProps = ExpoImageProps;
 export default Image;
