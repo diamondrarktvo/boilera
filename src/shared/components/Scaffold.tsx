@@ -1,8 +1,8 @@
 import Box, { BoxProps } from './Box';
 import React from 'react';
 import Text from './Text';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { StyleSheet } from 'react-native';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
+import { KeyboardAvoidingView, Platform, StyleSheet } from 'react-native';
 
 type Props = {
    children: React.ReactNode;
@@ -32,16 +32,22 @@ const Scaffold: React.FC<Props> = ({
    titleTabScreen,
    ...props
 }) => {
+   const insets = useSafeAreaInsets();
    return (
-      <SafeAreaView style={styles.safeAreaViewContainer}>
-         <Box
-            flex={1}
-            padding={withDefaultPadding ? 's' : 'none'}
-            backgroundColor="mainBackground"
-            {...props}>
-            {typeOfScreen === 'tab' && <HeaderTabTitle title={titleTabScreen} />}
-            {children}
-         </Box>
+      <SafeAreaView style={styles.safeAreaViewContainer} edges={['left', 'right', 'top']}>
+         <KeyboardAvoidingView
+            style={{ flex: 1 }}
+            behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+            keyboardVerticalOffset={insets.top + 10}>
+            <Box
+               flex={1}
+               padding={withDefaultPadding ? 's' : 'none'}
+               backgroundColor="mainBackground"
+               {...props}>
+               {typeOfScreen === 'tab' && <HeaderTabTitle title={titleTabScreen} />}
+               {children}
+            </Box>
+         </KeyboardAvoidingView>
       </SafeAreaView>
    );
 };

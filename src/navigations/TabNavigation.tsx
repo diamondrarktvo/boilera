@@ -46,7 +46,6 @@ const TabNavigation = () => {
             tabBarStyle: [
                {
                   backgroundColor: mainBackground,
-                  height: Layouts.heightPercentageToDP(7),
                },
             ],
          }}>
