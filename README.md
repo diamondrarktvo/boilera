@@ -1,6 +1,6 @@
 # 🚀 Boilera
 
-**Boilerplate React Native with Expo** – Kickstart your mobile project at lightning speed, with everything you need to code in peace.
+**Template React Native with Expo** – Kickstart your mobile project at lightning speed, with everything you need to code in peace.
 
 ---
 
@@ -84,7 +84,7 @@ MIT © [Your Name]
 
 # 🚀 Boilera
 
-**Boilerplate React Native avec Expo** – Démarrez votre projet mobile en un éclair, avec tout ce qu’il faut pour coder sereinement.
+**Template React Native avec Expo** – Démarrez votre projet mobile en un éclair, avec tout ce qu’il faut pour coder sereinement.
 
 ---
 
