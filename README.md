@@ -78,7 +78,7 @@ Contributions are welcome! :)
 
 ## 📄 License
 
-MIT © [Your Name]
+MIT © Dama
 
 ---
 
