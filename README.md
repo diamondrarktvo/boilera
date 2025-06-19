@@ -81,6 +81,7 @@ MIT © [Your Name]
 ---
 
 ---
+
 # 🚀 Boilera
 
 **Boilerplate React Native avec Expo** – Démarrez votre projet mobile en un éclair, avec tout ce qu’il faut pour coder sereinement.
@@ -159,5 +160,4 @@ Les contributions sont les bienvenues ! :)
 
 ## 📄 License
 
-MIT © [Votre Nom]
-
+MIT © Dama
