@@ -56,8 +56,10 @@ npx expo start
 After installation, you can:
 
 - **Theme**: Edit your theme in `src/theme`
-- **Add screens**: Place your screens in `src/screens`
-- **Use components**: Import from `src/components`
+- **Add features**: Place your features in `src/features`
+- **Add navigations**: Add your new navigations data in `src/navigations/data`
+- **Add images & fonts**: Place your images & fonts in `src/assets`
+- **Use components**: Import from `src/shared`
 - **Run on device**: Scan the QR code with Expo Go or launch an emulator
 
 ---
