@@ -1,0 +1,14 @@
+{
+   "text": {
+      "welcome": "Bienvenue",
+      "welcome_subtitle": "Connectez-vous pour accéder à votre compte",
+      "email": "Adresse e-mail",
+      "placeholder_email": "exemple@domaine.com",
+      "password": "Mot de passe",
+      "placeholder_password": "Entrez votre mot de passe",
+      "reset_password": "Mot de passe oublié ?"
+   },
+   "button": {
+      "login": "Se connecter"
+   }
+}

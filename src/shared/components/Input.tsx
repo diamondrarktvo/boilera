@@ -1,30 +1,30 @@
-import { TextInput, TextInputProps, StyleSheet, Keyboard } from "react-native";
-import React from "react";
-import Row from "./Row";
-import Text from "./Text";
-import Icon from "./Icon";
-import TouchableOpacity from "./TouchableOpacity";
-import { ThemeT } from "_theme";
-import { useTheme } from "@shopify/restyle";
-import Box from "./Box";
-import { TouchableWithoutFeedback } from "react-native-gesture-handler";
+import { TextInput, TextInputProps, StyleSheet, Keyboard } from 'react-native';
+import React from 'react';
+import Row from './Row';
+import Text from './Text';
+import Icon from './Icon';
+import TouchableOpacity from './TouchableOpacity';
+import { ThemeT } from '_theme';
+import { useTheme } from '@shopify/restyle';
+import Box from './Box';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
 type InputProps = TextInputProps & {
-  iconRight?: {
-    name: string;
-    color: string;
-    size: number;
-    onPress?: () => void;
-  };
-  iconLeft?: {
-    name: string;
-    color: string;
-    size: number;
-  };
-  errorMessage?: string;
-  label?: string;
-  boldLabel?: boolean;
-  inputCustomStyle?: any;
+   iconRight?: {
+      name: string;
+      color: string;
+      size: number;
+      onPress?: () => void;
+   };
+   iconLeft?: {
+      name: string;
+      color: string;
+      size: number;
+   };
+   errorMessage?: string;
+   label?: string;
+   boldLabel?: boolean;
+   inputCustomStyle?: any;
 };
 
 /**
@@ -37,79 +37,64 @@ type InputProps = TextInputProps & {
  * @returns
  */
 const Input = ({
-  iconRight,
-  iconLeft,
-  errorMessage,
-  label,
-  boldLabel,
-  inputCustomStyle,
-  ...props
+   iconRight,
+   iconLeft,
+   errorMessage,
+   label,
+   boldLabel,
+   inputCustomStyle,
+   ...props
 }: InputProps) => {
-  const theme = useTheme<ThemeT>();
-  const { spacing, colors } = theme;
+   const theme = useTheme<ThemeT>();
+   const { spacing, colors } = theme;
 
-  return (
-    <TouchableWithoutFeedback
+   return (
+      /*<TouchableWithoutFeedback
       onPress={() => {
         Keyboard.dismiss();
       }}
-    >
+    >*/
       <Box mb="s">
-        {label ? (
-          <Text
-            variant={"primary"}
-            color="primary"
-            fontWeight={boldLabel ? "bold" : "normal"}
-          >
-            {label}
-          </Text>
-        ) : null}
-        <Row
-          borderRadius="md"
-          backgroundColor="offWhite"
-          width="100%"
-          paddingVertical="s"
-          paddingHorizontal="s"
-          marginVertical="xs"
-          alignItems="center"
-        >
-          {iconLeft && (
-            <Icon
-              name={iconLeft.name}
-              size={iconLeft.size}
-              color={iconLeft.color}
-            />
-          )}
-          <Row flex={1} justifyContent="space-between">
-            <TextInput
-              {...props}
-              onEndEditing={props.onEndEditing || (() => {})}
-              style={{
-                width: iconRight ? "90%" : "100%",
-                marginLeft: iconLeft ? spacing.s : 0,
-                color: colors.black,
-                ...inputCustomStyle,
-              }}
-            />
-            {iconRight && (
-              <TouchableOpacity onPress={iconRight.onPress}>
-                <Icon
-                  name={iconRight.name}
-                  size={iconRight.size}
-                  color={iconRight.color}
-                />
-              </TouchableOpacity>
-            )}
-          </Row>
-        </Row>
-        {errorMessage ? (
-          <Text variant={"tertiary"} color="error">
-            {errorMessage}
-          </Text>
-        ) : null}
+         {label ? (
+            <Text variant={'primary'} color="primary" fontWeight={boldLabel ? 'bold' : 'normal'}>
+               {label}
+            </Text>
+         ) : null}
+         <Row
+            borderRadius="md"
+            backgroundColor="offWhite"
+            width="100%"
+            paddingVertical="s"
+            paddingHorizontal="s"
+            marginVertical="xs"
+            alignItems="center">
+            {iconLeft && <Icon name={iconLeft.name} size={iconLeft.size} color={iconLeft.color} />}
+            <Row flex={1} justifyContent="space-between">
+               <TextInput
+                  {...props}
+                  onEndEditing={props.onEndEditing || (() => {})}
+                  style={{
+                     width: iconRight ? '90%' : '100%',
+                     marginLeft: iconLeft ? spacing.s : 0,
+                     color: colors.black,
+                     ...inputCustomStyle,
+                  }}
+               />
+               {iconRight && (
+                  <TouchableOpacity onPress={iconRight.onPress}>
+                     <Icon name={iconRight.name} size={iconRight.size} color={iconRight.color} />
+                  </TouchableOpacity>
+               )}
+            </Row>
+         </Row>
+         {errorMessage ? (
+            <Text variant={'tertiary'} color="error">
+               {errorMessage}
+            </Text>
+         ) : null}
       </Box>
-    </TouchableWithoutFeedback>
-  );
+      /*</TouchableWithoutFeedback>*/
+   );
 };
 
 export type ImageProps = React.ComponentProps<typeof Input>;

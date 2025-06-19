@@ -1,18 +1,20 @@
-import { HomeScreen, SettingScreen } from '_features';
+import { TFunction } from 'i18next';
 import { TabRouteTypes } from '../Types/Types';
-import i18next from '../../i18n/i18n';
+import { HomeScreen, SettingScreen } from '_features';
 
-export const TABROUTES: TabRouteTypes[] = [
-   {
-      name: 'home_screen',
-      component: HomeScreen,
-      tabLabel: i18next.t('common:tab_navigation.label.home'),
-      icon: 'home',
-   },
-   {
-      name: 'setting_screen',
-      component: SettingScreen,
-      tabLabel: i18next.t('common:tab_navigation.label.setting'),
-      icon: 'settings',
-   },
-];
+export const getTabNavigationData = (t: TFunction<'common'>): TabRouteTypes[] => {
+   return [
+      {
+         name: 'home_screen',
+         component: HomeScreen,
+         tabLabel: t('tab_navigation.label.home'),
+         icon: 'home',
+      },
+      {
+         name: 'setting_screen',
+         component: SettingScreen,
+         tabLabel: t('tab_navigation.label.setting'),
+         icon: 'settings',
+      },
+   ];
+};

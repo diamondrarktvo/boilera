@@ -20,3 +20,8 @@ export interface TabRouteTypes {
    tabLabel: string;
    icon: string;
 }
+
+export interface StackRouteTypes {
+   name: keyof StackParamList;
+   component: React.FC<unknown>;
+}

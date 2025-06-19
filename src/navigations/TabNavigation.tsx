@@ -2,14 +2,15 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 //LOCAL IMPORT
-import { TabParamList } from './Types/Types';
+import { TabParamList, TabRouteTypes } from './Types/Types';
 import { useTheme } from '@shopify/restyle';
 import { ThemeT } from '_theme';
 import { Icon, Text } from '_shared';
 import { Layouts } from '_utils';
 import { useTranslation } from 'react-i18next';
 import { DEFAULT_TAB_ROUTE } from './data/constant';
-import { TABROUTES } from './data/tabNavigationData';
+import { useMemo } from 'react';
+import { getTabNavigationData } from './data/tabNavigationData';
 
 const Tab = createBottomTabNavigator<TabParamList>();
 
@@ -17,6 +18,9 @@ const TabNavigation = () => {
    const { t } = useTranslation('common');
    const theme = useTheme<ThemeT>();
    const { primary, mainForeground, mainBackground, black } = theme.colors;
+
+   //routes
+   const TAB_ROUTES: TabRouteTypes[] = useMemo(() => getTabNavigationData(t), [t]);
 
    return (
       <Tab.Navigator
@@ -27,13 +31,12 @@ const TabNavigation = () => {
             tabBarStyle: [
                {
                   backgroundColor: mainBackground,
-                  height: Layouts.heightPercentageToDP(7),
                },
             ],
          }}>
-         {TABROUTES.map(route => (
+         {TAB_ROUTES.map((route, index) => (
             <Tab.Screen
-               key={route.name}
+               key={route.name + '_' + index}
                name={route.name}
                component={route.component}
                options={{

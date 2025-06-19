@@ -48,7 +48,7 @@ const LanguageSheet = React.forwardRef<BottomSheetModal, LanguageSheetProps>((pr
 
    return (
       <BottomSheet ref={ref} snapPoints={[1, '24%']}>
-         <Text variant={'primaryBold'} textAlign={'center'}>
+         <Text variant={'primaryBold'} color={'textBottomSheet'} textAlign={'center'}>
             {t('language.label_choice')}
          </Text>
          {ALL_LANGUAGE_SUPPORTED.map(language => (
@@ -60,7 +60,7 @@ const LanguageSheet = React.forwardRef<BottomSheetModal, LanguageSheetProps>((pr
                   paddingVertical={'s'}>
                   <Text
                      variant={selected === language.code ? 'primaryBold' : 'primary'}
-                     color={selected === language.code ? 'primary' : 'black'}>
+                     color={selected === language.code ? 'primary' : 'textBottomSheet'}>
                      {language.label}
                   </Text>
 

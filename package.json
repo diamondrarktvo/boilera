@@ -1,6 +1,6 @@
 {
    "name": "boilera",
-   "version": "1.0.0",
+   "version": "1.5.0",
    "main": "index.ts",
    "scripts": {
       "start": "npx expo start",
@@ -29,8 +29,8 @@
       "babel-preset-expo": "~13.0.0",
       "expo": "^53.0.8",
       "expo-font": "~13.3.1",
+      "expo-image": "~2.1.7",
       "expo-splash-screen": "~0.30.8",
-      "expo-status-bar": "~2.2.3",
       "expo-system-ui": "~5.0.7",
       "i18next": "^25.1.2",
       "intl-pluralrules": "^2.0.1",

@@ -1,0 +1,14 @@
+{
+   "text": {
+      "welcome": "Welcome",
+      "welcome_subtitle": "Log in to your account",
+      "email": "Email",
+      "placeholder_email": "example@domain.com",
+      "password": "Password",
+      "placeholder_password": "Enter your password",
+      "reset_password": "Forgot your password?"
+   },
+   "button": {
+      "login": "Log In"
+   }
+}
