@@ -1,4 +1,4 @@
-import { TextInput, TextInputProps, StyleSheet, Keyboard } from 'react-native';
+import { TextInput, TextInputProps, StyleSheet, Keyboard, Pressable } from 'react-native';
 import React from 'react';
 import Row from './Row';
 import Text from './Text';
@@ -7,7 +7,6 @@ import TouchableOpacity from './TouchableOpacity';
 import { ThemeT } from '_theme';
 import { useTheme } from '@shopify/restyle';
 import Box from './Box';
-import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
 type InputProps = TextInputProps & {
    iconRight?: {
@@ -49,11 +48,11 @@ const Input = ({
    const { spacing, colors } = theme;
 
    return (
-      /*<TouchableWithoutFeedback
-      onPress={() => {
-        Keyboard.dismiss();
-      }}
-    >*/
+      <Pressable
+         onPress={() => {
+            Keyboard.dismiss();
+         }}
+      >
       <Box mb="s">
          {label ? (
             <Text variant={'primary'} color="primary" fontWeight={boldLabel ? 'bold' : 'normal'}>
@@ -93,7 +92,7 @@ const Input = ({
             </Text>
          ) : null}
       </Box>
-      /*</TouchableWithoutFeedback>*/
+      </Pressable>
    );
 };
 

@@ -3,7 +3,7 @@ import { Box, Button, Image, Input, RequestLoader, Scaffold, Text } from '_share
 import { Layouts } from '_utils';
 import { useTranslation } from 'react-i18next';
 
-export const LoginScreen = () => {
+export default function LoginScreen(){
    const { t } = useTranslation(['login', 'common']);
 
    return (
@@ -33,7 +33,7 @@ export const LoginScreen = () => {
                   {/**Welcome box*/}
                   <Box>
                      <Text variant={'bigTitle'}>{t('login:text.welcome')}</Text>
-                     <Text variant={'secondary'} color={'tertiary'}>
+                     <Text variant={'secondary'} color={'text'}>
                         {t('login:text.welcome_subtitle')}
                      </Text>
                   </Box>
@@ -66,6 +66,7 @@ export const LoginScreen = () => {
                         label={t('login:button.login')}
                         variant="tertiary"
                         paddingVertical={'m'}
+                        color={"primary"}
                      />
                   </Box>
                </Box>
