@@ -5,19 +5,47 @@
     "forceConsistentCasingInFileNames": true,
     "module": "ESNext",
     "strict": true,
-     "baseUrl": ".",
-     "paths": {
-       "_assets": ["src/assets"],
-       "_config": ["src/config"],
-       "_features": ["src/features"],
-       "_hooks": ["src/hooks"],
-       "_i18n": ["src/i18n"],
-       "_navigations": ["src/navigations"],
-       "_services": ["src/services"],
-       "_shared": ["src/shared"],
-       "_store": ["src/store"],
-       "_theme": ["src/theme"],
-       "_utils": ["src/utils"]
-     }
-  }
+    "baseUrl": ".",
+    "paths": {
+      "_assets": [
+        "src/assets"
+      ],
+      "_config": [
+        "src/config"
+      ],
+      "_features": [
+        "src/features"
+      ],
+      "_hooks": [
+        "src/hooks"
+      ],
+      "_i18n": [
+        "src/i18n"
+      ],
+      "_navigations": [
+        "src/navigations"
+      ],
+      "_services": [
+        "src/services"
+      ],
+      "_shared": [
+        "src/shared"
+      ],
+      "_store": [
+        "src/store"
+      ],
+      "_theme": [
+        "src/theme"
+      ],
+      "_utils": [
+        "src/utils"
+      ]
+    }
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    ".expo/types/**/*.ts",
+    "expo-env.d.ts"
+  ]
 }

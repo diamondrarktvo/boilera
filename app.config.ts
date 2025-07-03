@@ -3,9 +3,9 @@ import { version } from "./package.json";
 
 // Replace these with your EAS project ID and project slug.
 // You can find them at https://expo.dev/accounts/[account]/projects/[project].
-const EAS_PROJECT_ID = "4a40e811-db03-4dfb-bc1d-c97b8edc5a78";
-const PROJECT_SLUG = "with-envs";
-const OWNER = "betoatexpo";
+const EAS_PROJECT_ID = "";
+const PROJECT_SLUG = "boilera";
+const OWNER = "boilera";
 
 // App production config
 const APP_NAME = "boilera";
@@ -66,11 +66,11 @@ export default ({ config }: ConfigContext): ExpoConfig => {
         "expo-splash-screen",
         {
           image: "./assets/images/splash-icon.png",
-          imageWidth: 200,
           resizeMode: "contain",
-          backgroundColor: "#ffffff",
+          backgroundColor: "#ffffff"
         },
       ],
+      "expo-font",
     ],
     experiments: {
       typedRoutes: true,
